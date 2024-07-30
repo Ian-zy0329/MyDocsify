@@ -17,3 +17,9 @@ jobs:
         registry: registry.cn-shanghai.aliyuncs.com
         username: ${{ secrets.ALIYUN_DOCKER_USERNAME }}
         password: ${{ secrets.ALIYUN_DOCKER_PASSWORD }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: registry.cn-hangzhou.aliyuncs.com/ian0329/docsify:latest
