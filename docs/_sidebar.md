@@ -1,2 +1,2 @@
-* [首页](zh-cn/)
-* [指南](zh-cn/guide)
+* [首页](README.md)
+* [建站](建站.md)
