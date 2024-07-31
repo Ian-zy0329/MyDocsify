@@ -6,13 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify-themeable/dist/css/themeable.css">
   <link rel="icon" href="_media/二向箔logo.jpg" type="image/x-icon">
 </head>
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
+      themeable: {
+        ready: function () {
+          // 设置主题名称，替换 'theme-name' 为你选择的主题名称
+          this.theme("Bootstrap");
+        }
+      },
+      //字数统计
+      countable: true,
+      position: 'top',
+      margin: '10px',
+      float: 'right',
+      fontsize:'0.9em',
+      color:'rgb(90,90,90)',
+      language:'chinese',
+      isExpected: true,
       loadSidebar: true,
       loadNavbar: true,
       coverpage: false,
@@ -25,6 +40,9 @@
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//unpkg.com/docsify-themeable"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <script src="//unpkg.com/docsify-copy-code"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
 </body>
 </html>
