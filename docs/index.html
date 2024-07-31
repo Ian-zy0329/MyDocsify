@@ -13,20 +13,15 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      themeable: {
-        ready: function () {
-          // 设置主题名称，替换 'theme-name' 为你选择的主题名称
-          this.theme("Bootstrap");
-        }
-      },
       //字数统计
       countable: true,
       position: 'top',
       margin: '10px',
-      float: 'right',
+      float: 'left',
       fontsize:'0.9em',
       color:'rgb(90,90,90)',
       language:'chinese',
+
       isExpected: true,
       loadSidebar: true,
       loadNavbar: true,
@@ -43,5 +38,8 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <script src="//unpkg.com/docsify-copy-code"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
+  <!-- 访问量统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
 </body>
 </html>
