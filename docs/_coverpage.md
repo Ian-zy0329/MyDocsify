@@ -1,5 +1,6 @@
 
-![logo](_media/二向箔logo.jpg)
+<img src="_media/二向箔logo.jpg" alt="logo" width="100" height="100" title="logo">
+
 # docsify <small>3.5</small>
 
 > 一个神奇的文档网站生成器。
