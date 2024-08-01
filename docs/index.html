@@ -1,45 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- Core Theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/themes/core.min.css">
   <link rel="icon" href="_media/二向箔logo.jpg" type="image/x-icon">
 </head>
-<body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      //字数统计
-      countable: true,
-      position: 'top',
-      margin: '10px',
-      float: 'right',
-      fontsize:'0.9em',
-      color:'rgb(90,90,90)',
-      language:'chinese',
+<body class="loading">
+<div id="app"></div>
 
-      isExpected: true,
-      loadSidebar: true,
-      loadNavbar: true,
-      coverpage: true,
-      maxLevel: 4,
-      subMaxLevel: 2,
-      name: '<span>二向箔笔记</span>',
-      logo: '',
-      repo: 'https://github.com/Ian-zy0329/MyDocsify'
-    }
-  </script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-  <script src="//unpkg.com/docsify-copy-code"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
-  <!-- 访问量统计 -->
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+<!-- Configuration -->
+<script>
+  window.$docsify = {
+    //字数统计
+    countable: true,
+    position: 'top',
+    margin: '10px',
+    float: 'right',
+    fontsize:'0.9em',
+    color:'rgb(90,90,90)',
+    language:'chinese',
+
+    isExpected: true,
+    loadSidebar: true,
+    loadNavbar: true,
+    coverpage: true,
+    maxLevel: 4,
+    subMaxLevel: 2,
+    name: '<span>二向箔笔记</span>',
+    logo: '',
+    repo: 'https://github.com/Ian-zy0329/MyDocsify'
+  };
+</script>
+
+<!-- Docsify.js -->
+<script src="//cdn.jsdelivr.net/npm/docsify@5"></script>
+
+<!-- Plugins (optional) -->
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+<script src="//unpkg.com/docsify-copy-code"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
+<!-- 访问量统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
 </body>
 </html>
