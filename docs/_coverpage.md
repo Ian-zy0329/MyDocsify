@@ -20,4 +20,4 @@
 [Get Started](README.md)
 
 <!-- 背景图片 -->
-![](_media/bg.webp)
+![](_media/bg1.webp)
