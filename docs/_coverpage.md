@@ -1,5 +1,5 @@
 
-<img src="_media/二向箔logo.jpg" alt="logo" width="100" height="270" title="logo">
+<img src="_media/二向箔logo.jpg" alt="logo" width="100" height="100" title="logo">
 
 # 二向箔 <small>笔记</small>
 
