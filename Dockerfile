@@ -17,4 +17,4 @@ COPY docs /app/docs
 EXPOSE 3000
 
 # 启动 docsify 服务
-CMD ["docsify", "serve", "/app/docs"]
+CMD ["docsify", "serve", "/app/docs","--livereload-port", "35729"]
