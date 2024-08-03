@@ -17,4 +17,3 @@ java ✊
 - Not just it...
 
 ---
-<div id="gitalk-container"></div>
