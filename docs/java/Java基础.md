@@ -1,5 +1,3 @@
-## Java 基础
-
 ##### 1.  Java 中的⼏种基本数据类型是什么？对应的包装类型是什么？各⾃占⽤多少字节呢？
 
 byte（Byte 1字节）、short（Short 2字节）、int（Integer 4字节）、long（Long 8字节）、double（Double 4字节）、float（Float 8字节）、char（Character 2字节）、boolean（Boolean 1位）
