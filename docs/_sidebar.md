@@ -1,12 +1,10 @@
 - Getting started
-
     - [建站](buildDocsify/建站.md)
 
 - Blog
+    - [Docsify 的 LiveReload 脚本报错解决方案](blog/Docsify%20的%20LiveReload%20脚本报错解决方案.md)
 
-[//]: # (    - []&#40;&#41;)
-
-- 算法 
+- 算法
     - [每日一题](algorithm/dailyQuestion.md)
 
 - 数据库
@@ -15,7 +13,7 @@
 
 - Java
     - [Java基础](java/Java基础.md)
-    - 
+
 - Spring Cloud
     - [Spring](spring/spring.md)
 
