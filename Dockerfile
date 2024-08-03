@@ -13,7 +13,7 @@ RUN npm install -g docsify-cli --registry=https://registry.npmmirror.com
 # 复制 docs 目录到工作目录
 COPY docs /app/docs
 
-COPY docs/index.js /usr/local/lib/node_modules/docsify-cli/node_modules/connect-livereload/index.js
+#COPY docs/index.js /usr/local/lib/node_modules/docsify-cli/node_modules/connect-livereload/index.js
 
 # 暴露端口
 EXPOSE 3000
