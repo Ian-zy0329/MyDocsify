@@ -7,8 +7,8 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LIGMATV/docsify-theme-github/github.css">
-<!--  Gitalk，一个现代化的，基于Preact和Github Issue的评论系统。-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <!-- docsify-gitalk-with-footer plugin -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css" />
 <!--  封面样式-->
 <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LIGMATV/docsify-vite-coverpage@main/docsify-vite-coverpage.css">-->
   <link rel="icon" href="_media/二向箔logo.jpg" type="image/x-icon">
@@ -40,6 +40,19 @@
 <!-- Configuration -->
 <script>
   window.$docsify = {
+    // 评论和注脚设置
+    gitalkWithFooter: {
+      footerInnerHtml: "<p>© 2023 - 2024 赵杨 / 趙楊 / Ian - All Rights Reserved.</p>",
+      gitalkConfig: {
+        clientID: 'Ov23liANVU3obQabJYLg', // Your Client Id
+        clientSecret: '31a010fa3a62f392f8c0008845f5a0e9a13e93b2', // Your Client secret
+        repo: 'MyDocsify',
+        owner: 'Ian-zy0329',
+        admin: ['Ian-zy0329'],
+        // facebook-like distraction free mode
+        distractionFreeMode: false,
+      }
+    },
     //字数统计
     count:{
       countable: true,
@@ -78,23 +91,7 @@
 <!--图片缩放-->
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
 <!--Gitalk 是一个基于 GitHub Issue 和 Preact 开发的评论插件。-->
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: 'Ov23liANVU3obQabJYLg',
-    clientSecret: '31a010fa3a62f392f8c0008845f5a0e9a13e93b2',
-    repo: 'MyDocsify',
-    owner: 'Ian-zy0329',
-    admin: ['Ian-zy0329'],
-    id: location.hash.match(/#(.*?)([?]|$)/)[1],
-  })
-  // 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
-  window.onhashchange = function(event){
-    if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
-      location.reload()
-    }
-  }
-</script>
+<script src="https://cdn.jsdelivr.net/gh/pikapikapikaori/docsify-gitalk-with-footer@latest/src/gitalkWithFooter.js"></script>
 </body>
 </html>

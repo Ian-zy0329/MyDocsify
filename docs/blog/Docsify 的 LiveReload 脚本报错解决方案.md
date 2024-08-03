@@ -31,3 +31,20 @@ livereload 的工作原理是通过在开发服务器中嵌入一个小型的 Ja
 我把修改后的 index.js 放在 docs 目录下，在 Dockerfile 中添加 'COPY docs/index.js /usr/local/lib/node_modules/docsify-cli/node_modules/connect-livereload/index.js' 
 命令来替换。然后再次打开网站，没有 LiveReload 啦！
 ![](_media/img_5.png)
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ian-zy0329/MyDocsify"
+        data-repo-id="R_kgDOMcR0MA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOMcR0MM4ChYRV"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
