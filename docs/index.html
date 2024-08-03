@@ -7,6 +7,8 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LIGMATV/docsify-theme-github/github.css">
+<!--  Gitalk，一个现代化的，基于Preact和Github Issue的评论系统。-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <!--  封面样式-->
 <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LIGMATV/docsify-vite-coverpage@main/docsify-vite-coverpage.css">-->
   <link rel="icon" href="_media/二向箔logo.jpg" type="image/x-icon">
@@ -75,5 +77,24 @@
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
 <!--图片缩放-->
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+<!--Gitalk 是一个基于 GitHub Issue 和 Preact 开发的评论插件。-->
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'Ov23liANVU3obQabJYLg',
+    clientSecret: 'Ov23liANVU3obQabJYLg',
+    repo: 'MyDocsify',
+    owner: 'Ian-zy0329',
+    admin: ['Ian-zy0329'],
+    title: location.hash.match(/#(.*?)([?]|$)/)[1],
+    id: location.hash.match(/#(.*?)([?]|$)/)[1],
+  })
+  // 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
+  window.onhashchange = function(event){
+    if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
+      location.reload()
+    }
+  }
+</script>
 </body>
 </html>

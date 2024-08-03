@@ -1,4 +1,5 @@
 - Getting started
+    - [about me](README.md)
     - [建站](buildDocsify/建站.md)
 
 - Blog
