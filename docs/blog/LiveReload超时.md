@@ -1,5 +1,3 @@
-<title>Docsify 自带 LiveReload 组件加载超时</title>
- 
 >对于 Docsify 自带 LiveReload 组件加载超时或者想关闭 Docsify 的 LiveReload（实时自动刷新），
 >可以通过修改 Node 中 node_modules 文件夹下的 index.js [点击直接到解决方法](#solution)
 ## LiveReload 加载超时
