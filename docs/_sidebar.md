@@ -3,7 +3,7 @@
     - [建站](buildDocsify/建站.md)
 
 - Blog
-    - [Docsify 的 LiveReload 脚本报错解决方案](blog/Docsify%20的%20LiveReload%20脚本报错解决方案.md)
+    - [LiveReload超时](blog/Docsify%20的%20LiveReload%20脚本报错解决方案.md)
 
 - 算法
     - [每日一题](algorithm/dailyQuestion.md)
