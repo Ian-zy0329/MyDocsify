@@ -1,5 +1,46 @@
 # 2024
 ## 8月
+### 8月4日
+#### [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/description/?envType=daily-question&envId=2024-08-04)
+>给你两棵二叉树 root 和 subRoot 。检验 root 中是否包含和 subRoot 具有相同结构和节点值的子树。如果存在，返回 true ；否则，返回 false 。
+>二叉树 tree 的一棵子树包括 tree 的某个节点和这个节点的所有后代节点。tree 也可以看做它自身的一棵子树。        
+> 示例 1：     
+> 输入：root = [3,4,5,1,2], subRoot = [4,1,2]      
+> 输出：true       
+> 示例 2：     
+> 输入：root = [3,4,5,1,2,null,null,null,null,0], subRoot = [4,1,2]        
+> 输出：false
+
+关于二叉树，我自然首先想到递归，思路就是暴力遍历 root 上每个子树与 subRoot 比较是否相等，遍历子树需要一次 dfs ，判断是否相等也通过 dfs 来判断两个树上每个节点值
+是否相等。
+
+    class Solution {
+        public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+            return dfs(root,subRoot);
+        }
+    
+        boolean dfs(TreeNode r,TreeNode s){
+            if(r == null){
+                return false;
+            }
+    
+            return check(r,s) || dfs(r.left,s) || dfs(r.right,s);
+        }
+    
+        boolean check(TreeNode r,TreeNode s){
+            if(r == null && s == null){
+                return true;
+            }
+            if(r == null || s == null || r.val != s.val){
+                return false;
+            }
+    
+            return check(r.left,s.left) && check(r.right,s.right);
+        }
+    }
+复杂度分析：
+- 时间复杂度：对于每一个 s 上的点，都需要做一次深度优先搜索来和 t 匹配，匹配一次的时间代价是 O(∣t∣)，那么总的时间代价就是 O(∣s∣×∣t∣)。故渐进时间复杂度为 O(∣s∣×∣t∣)。
+- 空间复杂度：假设 s 深度为 ds ，t 的深度为 dt，任意时刻栈空间的最大使用代价是O(max{ds ,dt})。故渐进空间复杂度为 O(max{ds,dt})。
 ### 8月3日
 #### [3143. 正方形中的最多点数](https://leetcode.cn/problems/maximum-points-inside-the-square/?envType=daily-question&envId=2024-08-03)
 >给你一个二维数组 points 和一个字符串 s ，其中 points[i] 表示第 i 个点的坐标，s[i] 表示第 i 个点的 标签 。如果一个正方形的中心在 (0, 0) ，所有边都平行于坐标轴，且正方形内 不 存在标签相同的两个点，那么我们称这个正方形是 合法 的。请你返回 合法 正方形中可以包含的 最多 点数。  
