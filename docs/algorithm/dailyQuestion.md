@@ -1,5 +1,100 @@
 # 2024
 ## 8月
+### 8月5日
+#### [600. 不含连续1的非负整数](https://leetcode.cn/problems/non-negative-integers-without-consecutive-ones/?envType=daily-question&envId=2024-08-05)
+>给定一个正整数 n ，请你统计在 [0, n] 范围的非负整数中，有多少个整数的二进制表示中不存在 连续的 1 。  
+> 示例 1:     
+>输入: n = 5 输出: 5   
+解释:
+下面列出范围在 [0, 5] 的非负整数与其对应的二进制表示：     
+0 : 0       
+1 : 1       
+2 : 10      
+3 : 11      
+4 : 100     
+5 : 101     
+其中，只有整数 3 违反规则（有两个连续的 1 ），其他 5 个满足规则。       
+> 示例 2:     
+输入: n = 1
+输出: 2       
+> 示例 3:     
+输入: n = 2
+输出: 3
+
+这个问题可以使用动态规划来解决。    
+##### 具体步骤：
+1. 理解问题：我们要找到在 [0, n] 范围内的所有非负整数中，其二进制表示中没有连续的 1 的整数数量。例如，数字 5 的二进制表示为 101，不包含连续的 1，所以它是符合条件的。而数字 3 的二进制表示为 11，包含连续的 1，所以它不符合条件。
+2. Fibonacci 数列的联系：我们可以发现一个规律，如果一个整数的二进制表示中没有连续的 1，那么它可以由前一个或前两个较小的整数构成。这有点像 Fibonacci 数列的构建方式。具体来说：
+    - 长度为 1 的二进制字符串中没有连续 1 的有 2 个：0 和 1。
+    - 长度为 2 的二进制字符串中没有连续 1 的有 3 个：00、01 和 10。
+    - 长度为 3 的二进制字符串中没有连续 1 的有 5 个：000、001、010、100 和 101。
+3. 动态规划状态转移：我们使用两个数组 dp0 和 dp1 分别表示以 0 和 1 结尾的、长度为 i 的二进制字符串中没有连续 1 的个数。
+    - dp0[i] 表示长度为 i，以 0 结尾的二进制字符串个数。
+    - dp1[i] 表示长度为 i，以 1 结尾的二进制字符串个数。
+4. 状态转移方程：
+    - dp0[i] = dp0[i-1] + dp1[i-1]，因为可以在长度为 i-1 的所有字符串后面加一个 0。
+    - dp1[i] = dp0[i-1]，因为可以在长度为 i-1 的、以 0 结尾的所有字符串后面加一个 1，但不能在以 1 结尾的字符串后面再加一个 1。
+5. 结果：我们需要将上述状态转移方程计算到 n，然后将所有结果累加。
+
+    
+    class Solution {
+        public int findIntegers(int n) {
+            // Convert n to binary and get the length
+            String binary = Integer.toBinaryString(n);
+            int len = binary.length();
+    
+            // Arrays to store the counts
+            int[] dp0 = new int[len + 1];
+            int[] dp1 = new int[len + 1];
+    
+            // Initialize base cases
+            dp0[1] = 1; // 0
+            dp1[1] = 1; // 1
+    
+            // Fill the dp arrays
+            for (int i = 2; i <= len; i++) {
+                dp0[i] = dp0[i - 1] + dp1[i - 1];
+                dp1[i] = dp0[i - 1];
+            }
+    
+            // Result to store the count of valid numbers
+            int result = 0;
+    
+            // Variable to store previous digit
+            int prevBit = 0;
+    
+            // Traverse the binary representation of n
+            for (int i = 0; i < len; i++) {
+                if (binary.charAt(i) == '1') {
+                    // Add the count of valid numbers of length (len - i - 1)
+                    result += dp0[len - i];
+                    if (prevBit == 1) {
+                        // If there are consecutive ones, break
+                        break;
+                    }
+                    prevBit = 1;
+                } else {
+                    prevBit = 0;
+                }
+    
+                // If we are at the last bit
+                if (i == len - 1) {
+                    result += 1;
+                }
+            }
+    
+            return result;
+        }
+    }
+##### 解释:
+- 转换与长度计算：将 n 转换为二进制字符串，并计算其长度 len。
+- 初始化：初始化两个数组 dp0 和 dp1。
+- 填充数组：使用状态转移方程填充数组。
+- 结果计算：遍历二进制字符串的每一位，如果遇到 1，则累加有效数字的数量，并且根据前一位判断是否有连续的 1。
+
+这个方法的时间复杂度是 O(log(n))，因为处理的最大位数是二进制表示的位数，空间复杂度也是 O(log(n))。这样就能有效地统计范围内符合条件的整数数量。
+    
+
 ### 8月4日
 #### [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/description/?envType=daily-question&envId=2024-08-04)
 >给你两棵二叉树 root 和 subRoot 。检验 root 中是否包含和 subRoot 具有相同结构和节点值的子树。如果存在，返回 true ；否则，返回 false 。
@@ -41,6 +136,7 @@
 复杂度分析：
 - 时间复杂度：对于每一个 s 上的点，都需要做一次深度优先搜索来和 t 匹配，匹配一次的时间代价是 O(∣t∣)，那么总的时间代价就是 O(∣s∣×∣t∣)。故渐进时间复杂度为 O(∣s∣×∣t∣)。
 - 空间复杂度：假设 s 深度为 ds ，t 的深度为 dt，任意时刻栈空间的最大使用代价是O(max{ds ,dt})。故渐进空间复杂度为 O(max{ds,dt})。
+
 ### 8月3日
 #### [3143. 正方形中的最多点数](https://leetcode.cn/problems/maximum-points-inside-the-square/?envType=daily-question&envId=2024-08-03)
 >给你一个二维数组 points 和一个字符串 s ，其中 points[i] 表示第 i 个点的坐标，s[i] 表示第 i 个点的 标签 。如果一个正方形的中心在 (0, 0) ，所有边都平行于坐标轴，且正方形内 不 存在标签相同的两个点，那么我们称这个正方形是 合法 的。请你返回 合法 正方形中可以包含的 最多 点数。  
@@ -90,6 +186,7 @@
             return res;
         }
     }
+
 ### 8月2日
 #### [LCP 40. 心算挑战](https://leetcode.cn/problems/uOAnQW/?envType=daily-question&envId=2024-08-01)
 >「力扣挑战赛」心算项目的挑战比赛中，要求选手从 N 张卡牌中选出 cnt 张卡牌，若这 cnt 张卡牌数字总和为偶数，则选手成绩「有效」且得分为 cnt 张卡牌数字总和。 给定数组 cards 和 cnt，其中 cards[i] 表示第 i 张卡牌上的数字。 请帮参赛选手计算最大的有效得分。若不存在获取有效得分的卡牌方案，则返回 0。
