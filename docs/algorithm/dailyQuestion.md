@@ -1,7 +1,142 @@
 # 2024
 ## 8月
+### 8月8日
+#### [904. 水果成篮（滑动窗口）](https://leetcode.cn/problems/fruit-into-baskets/)
+#### [76. 最小覆盖子串（滑动窗口）](https://leetcode.cn/problems/minimum-window-substring/)
+### 8月7日
+#### [977.有序数组的平方(双指针)](https://leetcode.cn/problems/squares-of-a-sorted-array/)
+>给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。  
+示例 1：    
+输入：nums = [-4,-1,0,3,10]            
+输出：[0,1,9,16,100]       
+解释：平方后，数组变为 [16,1,0,9,100]，排序后，数组变为 [0,1,9,16,100]
+示例 2：    
+输入：nums = [-7,-3,2,3,11]   
+输出：[4,9,9,49,121]
+
+暴力做法很简单，平方后加到新数组再排序 O(nlogn)，但双指针时间复杂度更低只需遍历一遍 O(n)
+
+      class Solution {
+          public int[] sortedSquares(int[] nums) {
+              int[] res = new int[nums.length];
+              int k = res.length-1,l = 0,r = nums.length-1;
+              while(l <= r){
+                  if(nums[l] * nums[l] < nums[r] * nums[r]){
+                      res[k--] = nums[r] * nums[r];
+                      r--;
+                  }else{
+                      res[k--] = nums[l] * nums[l];
+                      l++;
+                  }
+              }
+              return res;
+          }
+      }
+
+#### [209.长度最小的子数组(滑动窗口)](https://leetcode.cn/problems/minimum-size-subarray-sum/)
+>给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的 连续 子数组，并返回其长度。如果不存在符合条件的子数组，返回 0。     
+示例：   
+输入：s = 7, nums = [2,3,1,2,4,3]   
+输出：2  
+解释：子数组 [4,3] 是该条件下的长度最小的子数组。
+
+
+      class Solution {
+          public int minSubArrayLen(int target, int[] nums) {
+              int res = Integer.MAX_VALUE;
+              int i = 0;
+              int sum = 0;
+              for(int j = 0; j < nums.length; j++){
+                  sum += nums[j];
+                  while(sum >= target){
+                      res = Math.min(res,j-i+1);
+                      sum -= nums[i++];
+                  }
+              }
+              return res == Integer.MAX_VALUE ? 0 : res;
+          }
+      }
+
+### 8月6日之无论如何非得把二分搞得明明白白
+#### [704. 二分查找（二分）](https://leetcode.cn/problems/binary-search/)
+>给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。
+
+首先使用二分查找必须满足两个条件：
+- 元素数组有序
+- 查找的元素只有一个
+涉及边界问题，二分有两种写法，左闭右闭、左闭右开，只要在处理边界时坚持开始对区间的定义，二分就很简单。
+##### 左闭右闭
+- 定义 'right' 时要为数组长度 -1，因为右闭，所以会对 'nums[right]' 和 'target' 直接比较，避免角标越界
+- 'while(left <= right)'，因为是'[left,right]'所以 'left = right' 时是成立的
+- 'middle = right - 1'    
+   
+   
+     class Solution {
+         public int search(int[] nums, int target) {
+            int left = 0,right = nums.length - 1;
+            while(left <= right){
+               int middle = right + ((left - right) >> 1);
+                  if(nums[middle] > target){
+                  right = middle - 1;
+               }else if(nums[middle] < target){
+                  left = middle + 1;
+               }else{
+                  return middle;
+               }
+            }
+         
+           return -1;
+         }
+     }
+      
+
+##### 左闭右开
+- 定义 'right' 时要为数组长度，因为右开
+- 'while(left < right)'，因为是 '[left,right)'所以 'left = right' 是不成立的
+- 'middle = right'，因为右开    
+      
+      
+      class Solution {
+          public int search(int[] nums, int target) {
+              int left = 0, right = nums.length;
+              while(left<right){
+                  int middle = right + ((left - right)>>1);
+                  if(nums[middle] > target){
+                      right = middle;
+                  }else if(nums[middle] < target){
+                      left = middle + 1;
+                  }else{
+                      return middle;
+                  }
+              }
+              return -1;
+          }
+      }
+      
+      
+#### [27. 移除元素（双指针）](https://leetcode.cn/problems/remove-element/)
+>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。
+>不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并原地修改输入数组。
+>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。  
+>示例 1: 给定 nums = [3,2,2,3], val = 3, 函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。 你不需要考虑数组中超出新长度后面的元素。    
+>示例 2: 给定 nums = [0,1,2,2,3,0,4,2], val = 2, 函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。
+
+根据题意很明显要用双指针，暴力做法要双循环，快慢指针只需一层循环，快指针找到符合条件元素，满指针直接覆盖原数组
+
+      class Solution {
+         public int removeElement(int[] nums, int val) {
+            int slow = 0;
+            for(int fast = 0; fast < nums.length;fast++ ){
+               if(nums[fast] != val){
+               nums[slow++] = nums[fast];
+               }
+            }
+            return slow;
+         }
+      }
+
 ### 8月5日
-#### [600. 不含连续1的非负整数](https://leetcode.cn/problems/non-negative-integers-without-consecutive-ones/?envType=daily-question&envId=2024-08-05)
+#### [600. 不含连续1的非负整数（动态规划）](https://leetcode.cn/problems/non-negative-integers-without-consecutive-ones/?envType=daily-question&envId=2024-08-05)
 >给定一个正整数 n ，请你统计在 [0, n] 范围的非负整数中，有多少个整数的二进制表示中不存在 连续的 1 。  
 > 示例 1:     
 >输入: n = 5 输出: 5   
@@ -37,55 +172,56 @@
 5. 结果：我们需要将上述状态转移方程计算到 n，然后将所有结果累加。
 
     
-    class Solution {
-        public int findIntegers(int n) {
-            // Convert n to binary and get the length
-            String binary = Integer.toBinaryString(n);
-            int len = binary.length();
-    
-            // Arrays to store the counts
-            int[] dp0 = new int[len + 1];
-            int[] dp1 = new int[len + 1];
-    
-            // Initialize base cases
-            dp0[1] = 1; // 0
-            dp1[1] = 1; // 1
-    
-            // Fill the dp arrays
-            for (int i = 2; i <= len; i++) {
-                dp0[i] = dp0[i - 1] + dp1[i - 1];
-                dp1[i] = dp0[i - 1];
-            }
-    
-            // Result to store the count of valid numbers
-            int result = 0;
-    
-            // Variable to store previous digit
-            int prevBit = 0;
-    
-            // Traverse the binary representation of n
-            for (int i = 0; i < len; i++) {
-                if (binary.charAt(i) == '1') {
-                    // Add the count of valid numbers of length (len - i - 1)
-                    result += dp0[len - i];
-                    if (prevBit == 1) {
-                        // If there are consecutive ones, break
-                        break;
-                    }
-                    prevBit = 1;
-                } else {
-                    prevBit = 0;
-                }
-    
-                // If we are at the last bit
-                if (i == len - 1) {
-                    result += 1;
-                }
-            }
-    
-            return result;
-        }
-    }
+       class Solution {
+           public int findIntegers(int n) {
+               // Convert n to binary and get the length
+               String binary = Integer.toBinaryString(n);
+               int len = binary.length();
+       
+               // Arrays to store the counts
+               int[] dp0 = new int[len + 1];
+               int[] dp1 = new int[len + 1];
+       
+               // Initialize base cases
+               dp0[1] = 1; // 0
+               dp1[1] = 1; // 1
+       
+               // Fill the dp arrays
+               for (int i = 2; i <= len; i++) {
+                   dp0[i] = dp0[i - 1] + dp1[i - 1];
+                   dp1[i] = dp0[i - 1];
+               }
+       
+               // Result to store the count of valid numbers
+               int result = 0;
+       
+               // Variable to store previous digit
+               int prevBit = 0;
+       
+               // Traverse the binary representation of n
+               for (int i = 0; i < len; i++) {
+                   if (binary.charAt(i) == '1') {
+                       // Add the count of valid numbers of length (len - i - 1)
+                       result += dp0[len - i];
+                       if (prevBit == 1) {
+                           // If there are consecutive ones, break
+                           break;
+                       }
+                       prevBit = 1;
+                   } else {
+                       prevBit = 0;
+                   }
+       
+                   // If we are at the last bit
+                   if (i == len - 1) {
+                       result += 1;
+                   }
+               }
+       
+               return result;
+           }
+       }
+
 ##### 解释:
 - 转换与长度计算：将 n 转换为二进制字符串，并计算其长度 len。
 - 初始化：初始化两个数组 dp0 和 dp1。
@@ -186,6 +322,7 @@
             return res;
         }
     }
+
 
 ### 8月2日
 #### [LCP 40. 心算挑战](https://leetcode.cn/problems/uOAnQW/?envType=daily-question&envId=2024-08-01)
