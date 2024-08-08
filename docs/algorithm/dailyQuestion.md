@@ -2,7 +2,110 @@
 ## 8月
 ### 8月8日
 #### [904. 水果成篮（滑动窗口）](https://leetcode.cn/problems/fruit-into-baskets/)
+>你正在探访一家农场，农场从左到右种植了一排果树。这些树用一个整数数组 fruits 表示，其中 fruits[i] 是第 i 棵树上的水果 种类 。
+你想要尽可能多地收集水果。然而，农场的主人设定了一些严格的规矩，你必须按照要求采摘水果：
+你只有 两个 篮子，并且每个篮子只能装 单一类型 的水果。每个篮子能够装的水果总量没有限制。
+你可以选择任意一棵树开始采摘，你必须从 每棵 树（包括开始采摘的树）上 恰好摘一个水果 。采摘的水果应当符合篮子中的水果类型。每采摘一次，你将会向右移动到下一棵树，并继续采摘。
+一旦你走到某棵树前，但水果不符合篮子的水果类型，那么就必须停止采摘。
+给你一个整数数组 fruits ，返回你可以收集的水果的 最大 数目。    
+> 示例 1：  
+输入：fruits = [1,2,1]  
+输出：3  
+解释：可以采摘全部 3 棵树。
+> 示例 2：  
+输入：fruits = [0,1,2,2]   
+输出：3  
+解释：可以采摘 [1,2,2] 这三棵树。
+如果从第一棵树开始采摘，则只能采摘 [0,1] 这两棵树。
+
+很明显的滑动窗口的题，连续的，维护一个子窗口，只不过维护窗口的依据是窗口内水果的种类，
+自然就想到用 map 来统计，当 map 的长度大于 2 的时候，left 向右移动并维护 map ，需要注意的
+一点是 map 统计种类数量为 0 时，要 remove 
+
+      class Solution {
+          public int totalFruit(int[] fruits) {
+              HashMap<Integer,Integer> kind = new HashMap<>();
+              int i = 0;
+              int res = 0;
+              for(int j = 0; j < fruits.length; j++){
+                  kind.put(fruits[j],kind.getOrDefault(fruits[j],0) +1);
+                  while(kind.size() > 2 ){
+                      kind.put(fruits[i],kind.get(fruits[i])-1);
+                      if(kind.get(fruits[i]) == 0){
+                          kind.remove(fruits[i]);
+                      }
+                      i++;
+                  }
+                  res = Math.max(res,j-i+1);
+              }
+      
+              return res;
+          }
+      }
+      
+      
+         
 #### [76. 最小覆盖子串（滑动窗口）](https://leetcode.cn/problems/minimum-window-substring/)
+>给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。  
+> 注意：    
+>- 对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。
+>- 如果 s 中存在这样的子串，我们保证它是唯一的答案。 
+
+>示例 1：
+输入：s = "ADOBECODEBANC", t = "ABC"
+输出："BANC"
+解释：最小覆盖子串 "BANC" 包含来自字符串 t 的 'A'、'B' 和 'C'。  
+> 示例 2：
+输入：s = "a", t = "a"
+输出："a"
+解释：整个字符串 s 是最小覆盖子串。
+
+      
+         class Solution {
+             HashMap<Character,Integer> smap = new HashMap<>();
+             HashMap<Character,Integer> tmap = new HashMap<>();
+             public String minWindow(String s, String t) {
+                 int l = 0,r = -1,len = Integer.MAX_VALUE;
+                 int ansL = -1,ansR = -1;
+                 for(int i = 0; i < t.length();i++){
+                     char c = t.charAt(i);
+                     tmap.put(c,tmap.getOrDefault(c,0)+1);
+                 }
+                 while(r < s.length()){
+                     r++;
+                     if(r < s.length() && tmap.containsKey(s.charAt(r))){
+                         smap.put(s.charAt(r),smap.getOrDefault(s.charAt(r),0)+1);
+                     }
+                     
+         
+                     while(check() && l <= r){
+                         if((r-l+1) < len){
+                             ansL = l;
+                             ansR = r;
+                             len = r-l+1;
+                         }
+                         if(tmap.containsKey(s.charAt(l))){
+                             smap.put(s.charAt(l),smap.getOrDefault(s.charAt(l),0)-1);
+                         }
+                         l++;
+                     }
+                 }
+         
+         
+                 return  ansL == -1 ? "" : s.substring(ansL,ansR+1);
+             }
+         
+             boolean check(){
+                 for(Character c : tmap.keySet()){
+                     if(smap.getOrDefault(c,0) < tmap.get(c)){
+                         return false;
+                     }
+                 }
+                 return true;
+             }
+         }
+         
+         
 ### 8月7日
 #### [977.有序数组的平方(双指针)](https://leetcode.cn/problems/squares-of-a-sorted-array/)
 >给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。  
