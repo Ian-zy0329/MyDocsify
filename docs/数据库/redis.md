@@ -14,6 +14,13 @@
 - 3 种特殊数据结构 ：HyperLogLogs（基数统计）、Bitmap （位存储）、Geospatial (地理位
 置)。
 
+## Redis 除了做缓存，还能做什么？
+- 分布式锁：通过 Redis 来做分布式锁是一种比较常见的方式。通常情况下，我们都是基于 Redisson 来实现分布式锁。
+- 限流：一般是通过 Redis + Lua 脚本的方式来实现限流。如果不想自己写 Lua 脚本的话，也可以直接利用 Redisson 中的 RRateLimiter 来实现分布式限流，其底层实现就是基于 Lua 代码+令牌桶算法。
+- 消息队列：Redis 自带的 List 数据结构可以作为一个简单的队列使用。Redis 5.0 中增加的 Stream 类型的数据结构更加适合用来做消息队列。它比较类似于 Kafka，有主题和消费组的概念，支持消息持久化以及 ACK 机制。
+- 延时队列：Redisson 内置了延时队列（基于 Sorted Set 实现的）。
+- 分布式 Session ：利用 String 或者 Hash 数据类型保存 Session 数据，所有的服务器都可以访问。
+
 ## 1. Redis内存回收机制
 Redis 的内存回收主要由两部分组成：
 - Redis过期策略：删除过期时间的key值

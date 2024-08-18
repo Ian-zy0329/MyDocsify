@@ -4,6 +4,8 @@
 
 - Blog
     - [Docsify 的 LiveReload 脚本报错解决方案](blog/LiveReload超时.md)
+    - [面试题自测](blog/自测.md)
+    - [一篇搞定JVM](blog/一篇搞定JVM.md)
 
 - 每日一题
     - [8月](algorithm/8月.md)
