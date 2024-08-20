@@ -56,19 +56,7 @@ http://localhost:8080/swagger-ui/index.html 但是我访问这个也还是 404�
     </dependency>
 
 ## 经验与教训
-升级版本时可以先去官网上看看，比如这次官网都写了要用到这个依赖甚至之前的这俩依赖都不需要
-
-    <!--Swagger-UI API文档生产工具-->
-    <dependency>
-        <groupId>io.springfox</groupId>
-        <artifactId>springfox-swagger2</artifactId>
-        <version> 3.0.0</version>
-    </dependency>
-    <dependency>
-        <groupId>io.springfox</groupId>
-        <artifactId>springfox-swagger-ui</artifactId>
-        <version> 3.0.0</version>
-    </dependency>
+升级版本时可以先去官网上看看，比如这次官网都写了要用到这个依赖
 
 ![img_6.png](_media%2Fimg_6.png)
             
