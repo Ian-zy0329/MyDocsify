@@ -4,6 +4,7 @@
 
 - Blog
     - [Docsify 的 LiveReload 脚本报错解决方案](blog/LiveReload超时.md)
+    - [swagger3踩坑.md](blog%2Fswagger3%B2%C8%BF%D3.md)
     - [面试题自测](blog/自测.md)
     - [一篇搞定JVM](blog/一篇搞定JVM.md)
 
