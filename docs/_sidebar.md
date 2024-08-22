@@ -3,6 +3,7 @@
     - [建站](buildDocsify/建站.md)
 
 - Blog
+    - [Liunx网络服务报错](blog/Linux网络报错.md)
     - [Docsify 的 LiveReload 脚本报错解决方案](blog/LiveReload超时.md)
     - [swagger3踩坑](blog/swagger3踩坑.md)
     - [面试题自测](blog/自测.md)
