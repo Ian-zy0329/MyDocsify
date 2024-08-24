@@ -194,7 +194,7 @@ Parallel Scavenge 收集器关注点是吞吐量（高效率的利用 CPU）。C
 #### CMS 收集器
 CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时间为目标的收集器。它非常符合在注重用户体验的应用上使用。
 
-CMS（Concurrent Mark Sweep）收集器是 HotSpot 虚拟机第一款真正意义上的并发收集器，它第一次实现了让垃圾收集线程与用户线程（基本
+CMS（Concurrent Mark Sweep）收集器是 HotSpot 虚拟机第一款真正意义上的并发收集器，它第一次实现了让垃圾收集线程与用户线程（基本上）同时工作
 
 CMS 收集器是一种 “标记-清除”算法实现的，整个过程分为四个步骤：
 - 初始标记： 暂停所有的其他线程，并记录下直接与 root 相连的对象，速度很快 ；
@@ -262,6 +262,8 @@ ZGC 可以将暂停时间控制在几毫秒以内，且暂停时间不受堆内�
   - '-XX:+UseStringCache'：启用 String 池中可用的常用分配字符串的缓存。
   - '-XX:+UseCompressedStrings'：对 String 对象使用 byte [] 类型，该类型可以用纯 ASCII 格式表示
   - '-XX:+OptimizeStringConcat'：它尽可能优化字符串串联操作
-## JVM 调优                                                
+
+## JVM 调优           
+
                                                          
          

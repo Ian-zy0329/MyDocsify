@@ -7,8 +7,9 @@
     - [Docsify 的 LiveReload 脚本报错解决方案](blog/LiveReload超时.md)
     - [swagger3踩坑](blog/swagger3踩坑.md)
     - [一篇搞定JVM](blog/一篇搞定JVM.md)
-    - [凤凰架构》阅读笔记](blog/《凤凰架构》阅读笔记.md)
     - [面试题自测](blog/自测.md)
+
+[//]: # (    - [《凤凰架构》阅读笔记]&#40;blog/凤凰架构在读.md&#41;)
 
 - 每日一题
     - [8月](algorithm/8月.md)
