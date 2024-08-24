@@ -1,7 +1,7 @@
 
 
 <div style="text-align:center;">
-    <img src="_media/二向箔logo.jpg" alt="logo" style="width:160px; height:160px; border-radius:50%; ">
+    <img src="_media/finn.jpg" alt="logo" style="width:160px; height:160px; border-radius:50%; ">
 </div>
 <br>
 

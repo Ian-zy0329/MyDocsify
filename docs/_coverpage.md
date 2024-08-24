@@ -1,5 +1,5 @@
 
-<img src="_media/二向箔logo.jpg" alt="logo" style="width:150px; height:150px; border-radius:50%; " title="logo"><br>
+<img src="_media/finn.jpg" alt="logo" style="width:150px; height:150px; border-radius:50%; " title="logo"><br>
 
 # 二向箔 <small>笔记</small>
 
