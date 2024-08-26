@@ -14,9 +14,9 @@
 - 每日一题
     - [8月](algorithm/8月.md)
     - [9月](algorithm/9月.md)
-    - [数据结构](algorithm/数据结构.md)
 
 - 算法
+    - [数据结构](algorithm/数据结构.md)
 
 - 数据库
     - [redis](数据库/redis.md)
