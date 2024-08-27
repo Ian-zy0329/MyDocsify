@@ -10,7 +10,7 @@
 > <span style="color:#e43fba;font-weight: bolder;font-size: 20px;">前进4！</span> / 
 > <span style="color:#69a8ef;font-style:italic;font-weight: lighter;font-size: 22px;">Viva La Vida</span>
 ## 😊 Learn mooooore about me
-Java后端学习笔记
+一个 Java 后端程序员的学习笔记🧑‍💻
 
 [//]: # (### My all skill)
 
