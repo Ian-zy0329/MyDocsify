@@ -7,8 +7,8 @@
 
 > An awesome project. /
 > 📮: ian_zy@icloud.com / 
-> <span style="color:#e43fba;font-weight: bolder;font-size: 20px;">前进4！</span> / 
-> <span style="color:#69a8ef;font-style:italic;font-weight: lighter;font-size: 22px;">Viva La Vida</span>
+> **_前进4！_**
+
 ## 二向箔
 二向箔（Two-dimensional foil）是刘慈欣的科幻小说《三体》系列中提到的一种虚构的武器。它是一种高维打击武器，能够将一个三维空间的物体或区域压缩成二维平面，从而完全摧毁其中的所有物质。
 
