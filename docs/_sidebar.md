@@ -24,6 +24,7 @@
 
 - Java
     - [Java基础](java/Java基础.md)
+    - [Java并发](java/Java并发.md)
     - [Java集合](java/Java集合.md)
 
 - Spring Cloud
