@@ -4,6 +4,7 @@
 
 - Blog
     - [lua教程以及 redis + lua 实战](blog/lua.md)
+    - [es集群搭建及性能优化](blog/es.md)
     - [Liunx网络服务报错](blog/Linux网络报错.md)
     - [Docsify 的 LiveReload 脚本报错解决方案](blog/LiveReload超时.md)
     - [swagger3踩坑](blog/swagger3踩坑.md)
