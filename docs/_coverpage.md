@@ -3,7 +3,7 @@
 
 # 二向箔 <small>笔记</small>
 
-> Viva La Vida
+> _Viva La Vida_
 
 Hello! It's home of my open blogs and notes 📖.
 
