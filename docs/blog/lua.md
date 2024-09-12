@@ -381,7 +381,7 @@ public class LimiterController {
 java.lang.RuntimeException: 已经到设置限流次数
 ```
 #### jmeter 测试验证
-![img_17.png](_media/Fimg_17.png)
+![img_17.png](_media/img_17.png)
 
 ## redis + lua 实现商品库存扣减
 要点：
