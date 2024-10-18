@@ -3,6 +3,8 @@
     - [建站](buildDocsify/建站.md)
 
 - Blog
+    - [反射和动态代理](blog/反射和动态代理.md)
+    - [GC日志分析](blog/GC日志分析.md)
     - [lua教程以及 redis + lua 实战](blog/lua.md)
     - [redis四种部署模式](blog/redis.md)
     - [es集群搭建及性能优化](blog/es.md)
