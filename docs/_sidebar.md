@@ -17,6 +17,8 @@
 [//]: # (    - [《凤凰架构》阅读笔记]&#40;blog/凤凰架构在读.md&#41;)
 
 - 每日一题
+    - [双指针](algorithm/双指针.md)
+    - [哈希表](algorithm/哈希表.md)
     - [10月](algorithm/10月.md)
     - [9月](algorithm/9月.md)
     - [8月](algorithm/8月.md)
