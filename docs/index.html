@@ -7,6 +7,8 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LIGMATV/docsify-theme-github/github.css">
+  <!-- 加载主题和插件 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" rel="stylesheet">
   <!-- docsify-gitalk-with-footer plugin -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css" />
 <!--  封面样式-->
@@ -32,6 +34,52 @@
     section.cover p {
       line-height: 1;
     }
+    :root {
+      --docsifytabs-border-color: #ededed;
+      --docsifytabs-tab-highlight-color: #42b983;
+      /* 修改内容区背景色（示例：浅灰色） */
+      --docsifytabs-content-background: #f4f2f0;
+      --docsifytabs-tab-background--active: #f4f2f0;
+
+    }
+    .markdown-section pre > code {
+      color: #ededed;
+    }
+    /* 修复行号对齐问题 */
+    .line-numbers {
+      position: relative;
+      padding-left: 4.1em !important; /* 行号区域宽度 */
+      overflow: visible !important;
+    }
+
+    .line-numbers-rows {
+      left: -64px !important;
+      width: 4.1em !important;
+      margin: 0 !important;
+      padding: 16px 0; /* 与代码块内边距一致 */
+      border-right: 1px solid #ddd;
+      background: #f4f2f0; /* 行号背景色 */
+    }
+
+    /* 统一行高和字体 */
+    .line-numbers-rows > span,
+    .line-numbers code {
+      line-height: 1.5rem !important;
+      font-size: 14px !important;
+      font-family: Consolas, Monaco, 'Courier New', monospace !important;
+    }
+
+    /* 清理冲突样式 */
+    .markdown-section pre > code {
+      padding-left: 0 !important; /* 禁用原有内边距 */
+      background: transparent !important;
+      color: inherit !important;
+    }
+
+    /* 强制覆盖 docsify-tabs 背景色 */
+    .docsify-tabs__content pre {
+      background: var(--prism-background) !important;
+    }
   </style>
 </head>
 <body class="loading">
@@ -40,6 +88,32 @@
 <!-- Configuration -->
 <script>
   window.$docsify = {
+    markdown: {
+      renderer: {
+        code: function(code, lang) {
+          // 自动添加 line-numbers 类
+          // 清理代码首尾空行
+          code = code.trim();
+          return '<pre class="line-numbers"><code class="language-' + lang + '">' + code + '</code></pre>';
+        }
+      }
+    },
+    plugins: [
+      function(hook) {
+        hook.doneEach(function() {
+          if (typeof Prism !== 'undefined') {
+            Prism.highlightAll();
+          }
+        });
+      }
+    ],
+    tabs: {
+      persist: true, // default
+      sync: true, // default
+      theme: 'classic', // default
+      tabComments: true, // default
+      tabHeadings: true // default
+    },
     // 评论和注脚设置
     gitalkWithFooter: {
       footerInnerHtml: "<div style=\"text-align: center;max-width: 800px;width: 80%;align-self: center;padding: 30px 15px 20px;margin: 0 auto\"><div style=\"border-top: 1px solid var(--global-border-default-color,#eee);\"><br><p><small>© 2024 - 2025 ZY / Ian - All Rights Reserved.</small></p><div></div></div></div>",
@@ -84,7 +158,8 @@
 
 <!-- Docsify v4 -->
 <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-
+<!-- docsify-tabs (latest v1.x.x) -->
+<script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
 <!-- Plugins (optional) -->
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
 <script src="https://unpkg.com/docsify-copy-code@2"></script>
@@ -97,5 +172,13 @@
 <!--Gitalk 是一个基于 GitHub Issue 和 Preact 开发的评论插件。-->
 <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/pikapikapikaori/docsify-gitalk-with-footer@latest/src/gitalkWithFooter.js"></script>
+<!-- 3. 加载 Prism 核心 + 语言模块 -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-java.min.js"></script>
+<!-- 加载 JS -->
+<!-- 2. 加载行号插件的 JS 和 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 </body>
 </html>
