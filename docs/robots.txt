@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /       # 允许爬取所有页面
+Disallow: /admin/  # 禁止爬取后台路径
