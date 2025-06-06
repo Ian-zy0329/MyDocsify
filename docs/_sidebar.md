@@ -17,6 +17,7 @@
 [//]: # (    - [《凤凰架构》阅读笔记]&#40;blog/凤凰架构在读.md&#41;)
 
 - 每日一题
+    - [链表](algorithm/链表.md)
     - [二叉树](algorithm/二叉树.md)
     - [双指针](algorithm/双指针.md)
     - [哈希表](algorithm/哈希表.md)
