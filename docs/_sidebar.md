@@ -3,6 +3,8 @@
     - [建站](buildDocsify/建站.md)
 
 - Blog
+    - [Go面经(自我整理)](blog/go面经准备.md)
+    - [MySQL梳理](blog/MySQL.md)
     - [反射和动态代理](blog/反射和动态代理.md)
     - [GC日志分析](blog/GC日志分析.md)
     - [lua教程以及 redis + lua 实战](blog/lua.md)
