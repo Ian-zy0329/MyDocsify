@@ -3,6 +3,7 @@
     - [建站](buildDocsify/建站.md)
 
 - Blog
+    - [lua+redis库存扣减以及k6压测实践](blog/高并发库存扣减逐步优化以及K6压测.md)
     - [Go面经(自我整理)](blog/go面经准备.md)
     - [MySQL梳理](blog/MySQL.md)
     - [Redis梳理](blog/redis.md)
