@@ -19,6 +19,11 @@
 
 [//]: # (    - [《凤凰架构》阅读笔记]&#40;blog/凤凰架构在读.md&#41;)
 
+- 数据库
+  - [MySQL索引详解](数据库/MySQL索引详解.md)
+  - [redis](数据库/redis.md)
+  - [mysql](数据库/mysql.md)
+
 - 每日一题
     - [链表](algorithm/链表.md)
     - [二叉树](algorithm/二叉树.md)
@@ -28,12 +33,8 @@
     - [9月](algorithm/9月.md)
     - [8月](algorithm/8月.md)
 
-- 算法
-    - [数据结构](algorithm/数据结构.md)
-
-- 数据库
-    - [redis](数据库/redis.md)
-    - [mysql](数据库/mysql.md)
+[//]: # (- 算法)
+[//]: # (    - [数据结构]&#40;algorithm/数据结构.md&#41;)
 
 - Java
     - [Java基础](java/Java基础.md)
